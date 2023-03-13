@@ -26,5 +26,21 @@
             $data = $query->fetchAll();
             return $data;
         }
+        
+        public function insert($a, $b, $c) {
+            $sql = "INSERT INTO tb_siswa(nis, nama, tanggal_lahir) values (:nis, :nama, :tanggal_lahir)";
+            
+            $query = $this->db->prepare($sql);
+
+            $query->bindParam(":nis", $a);
+            $query->bindParam(":nama", $b);
+            $query->bindParam(":tanggal_lahir", $c);
+
+            if($query->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ?>
