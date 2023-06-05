@@ -3,20 +3,16 @@
 include "../model/model_siswa.php";
 
 //unboxing dari html
-
 $ni = $_POST["nis"];
 $na = $_POST["nama"];
-$ta = $_POST["tanggal_lahir"];
+$ta = $_POST["tanggal"];
 
 $siswa = new mydb();
 $input = $siswa->insert($ni, $na, $ta);
 
 if ($input == true) {
-    echo "Input Data Siswa Telah BERHASIL!";
+    echo "Sukses Input Data Siswa";
 } else {
-    echo "Input Data Siswa Telah GAGAL!";
+    echo "Gagal Input Data Siswa";
 }
-
-
-
 ?>
